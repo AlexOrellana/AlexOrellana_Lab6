@@ -19,19 +19,32 @@ void Usuario::setPassword(string password){
 	this->password=password;
 }
 void Usuario::addGame(int id){
-	this->games.push_back(id);
+	int validar=0;
+	for(int i=0;i<games.size();i++){
+		if(games[i]==id){
+			validar++;
+		}
+	}
+	if(validar==0){
+		games.push_back(id);
+		cout << "listo" << endl;
+		cout << endl;
+	}else{
+		cout << "juego ya esta agregado" << endl;
+		cout << endl;
+	}
 }
 void Usuario::deleteGame(int id){
-	for(int i=0;i<this->games.size();i++){
-		if(this->games[i]==id){
-			this->games.erase(this->games.begin()+i);
+	for(int i=0;i<games.size();i++){
+		if(games[i]==id){
+			games.erase(games.begin()+i);
 		}
 	}
 }
 void Usuario::imprimirGames(){
 	cout << "JUEGOS(id)" << endl;
-	for(int i=0;i<this->games.size();i++){
-		cout << i << "-" << this->games[i]<<endl;
+	for(int i=0;i<games.size();i++){
+		cout << i << "-" << games[i]<<endl;
 	}
 }
 

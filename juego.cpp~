@@ -15,7 +15,7 @@ Juego::Juego(int id,string name,int year,string developers,string genre){
 }
 string Juego::getId(){
 	stringstream ss;
-	ss << id << endl;
+	ss << id ;
 	return ss.str();
 }
 string Juego::getName(){
