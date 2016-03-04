@@ -53,6 +53,7 @@ int main(int argc, char*argv[]){
 			}			
 
 		}else if(opc==2){
+			validar=0;
 			cout << endl;
 			cout << "Ingrese el username" << endl;
 			cin >> username;
@@ -70,7 +71,7 @@ int main(int argc, char*argv[]){
 					cin >> opc2;
 					
 					if(opc2 == 1){
-
+						validar=0;
 						cout << endl;
 						cout << "Lista de juegos"<<endl;
 						for(int j=0;j<juegos.size();j++){
@@ -80,9 +81,26 @@ int main(int argc, char*argv[]){
 
 						cout << "ingrese la id del juego que desea agregar: "<< endl;
 						cin >> id;
-						cout << endl;	
+						cout << endl;
 
-						usuarios[i].addGame(id);
+						id2=id;
+						stringstream ss;
+						ss << id2;
+						string str = ss.str();
+
+						for(int x=0;x<juegos.size();x++){
+							if(juegos[x].getId()==str){
+								validar++;
+							}
+						}
+			
+						if(validar!=0){
+							usuarios[i].addGame(id);	
+						}else{
+							cout << "no se puede agregar esta repetido" << endl;
+						}
+
+						cout << endl;	
 												
 					}else if(opc2 == 2){
 						
@@ -93,8 +111,25 @@ int main(int argc, char*argv[]){
 						cout << "ingrese la id del juego que desea eliminar: "<< endl;
 						cin >> id;
 						cout << endl;
-								
-						usuarios[i].deleteGame(id);
+
+						id2=id;
+						stringstream ss;
+						ss << id2;
+						string str = ss.str();
+
+						for(int x=0;x<juegos.size();x++){
+							if(juegos[x].getId()==str){
+								validar++;
+							}
+						}
+			
+						if(validar!=0){
+							usuarios[i].deleteGame(id);	
+						}else{
+							cout << "no se puede eliminar " << endl;
+						}
+
+						cout << endl;
 
 					}else if(opc2 == 3){
 						cout << endl;
