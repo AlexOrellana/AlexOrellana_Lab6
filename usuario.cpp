@@ -31,7 +31,7 @@ void Usuario::deleteGame(int id){
 void Usuario::imprimirGames(){
 	cout << "JUEGOS(id)" << endl;
 	for(int i=0;i<this->games.size();i++){
-		cout << this->games[i]<<endl;
+		cout << i << "-" << this->games[i]<<endl;
 	}
 }
 

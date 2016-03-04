@@ -11,6 +11,7 @@ class Juego{
 	string genre;
 public:
 	Juego(int,string,int,string,string);
-	int getId();
+	string getId();
+	string getName();
 	string toString()const;
 };

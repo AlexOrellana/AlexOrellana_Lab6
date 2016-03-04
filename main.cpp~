@@ -7,8 +7,8 @@ using namespace std;
 
 int main(int argc, char*argv[]){
 
-	int opc = 0,opc2=0,elimi;
-	string username,password;
+	int opc = 0,opc2=0,elimi,id,year;
+	string username,password,nombre,genre,developer;
 	vector<Usuario>usuarios;
 	vector<Juego>juegos;
 
@@ -31,9 +31,9 @@ int main(int argc, char*argv[]){
 
 		if(opc==1){
 			cout << endl;
-			cout << "Ingrese el username" << endl;
+			cout << "Ingrese el username:" << endl;
 			cin >> username;
-			cout << "Ingrese el password" << endl;
+			cout << "Ingrese el password:" << endl;
 			cin >> password;
 			usuarios.push_back(Usuario(username,password));	
 		}else if(opc==2){
@@ -74,8 +74,45 @@ int main(int argc, char*argv[]){
 			usuarios.erase(usuarios.begin()+elimi);
 			cout << endl;
 		}else if(opc==4){
-			
-		}		
+			cout << endl;
+			cout << "Ingrese el id:" << endl;
+			cin >> id;
+			cout << "Ingrese el nombre:" << endl;
+			cin >> nombre;
+			cout << "Ingrese el año:" << endl;
+			cin >> year;
+			cout << "Ingrese el developer:" << endl;
+			cin >> developer;
+			cout << "Ingrese el genero:" << endl;
+			cin >> genre;
+			juegos.push_back(Juego(id,nombre,year,developer,genre));
+			cout << endl;
+		}else if(opc==5){
+			cout << endl;
+			cout << "Lista de juegos"<<endl;
+			for(int i=0;juegos.size();i++){
+				cout << i << "-" << juegos[i].getId() << "   " << juegos[i].getName() << endl;
+			}
+			cout << endl;
+			cout << "ingrese el numero del que desea eliminar: "<<endl;
+			cin >> elimi;
+			juegos.erase(juegos.begin()+elimi);
+			cout << endl;
+		}else if(opc==6){
+			cout << endl;
+			cout << "Lista de usuarios"<<endl;
+			for(int i=0;usuarios.size();i++){
+				cout << i << "-" << usuarios[i].getUsername() << endl;
+			}
+			cout << endl;
+		}else if(opc==7){
+			cout << endl;
+			cout << "Lista de juegos"<<endl;
+			for(int i=0;juegos.size();i++){
+				cout << i << "-" << juegos[i].getId() << "   " << juegos[i].getName() << endl;
+			}
+			cout << endl;	
+		}
 	}while(opc!=8);
 
 	return 0;

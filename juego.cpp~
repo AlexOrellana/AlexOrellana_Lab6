@@ -18,4 +18,7 @@ string Juego::getId(){
 	ss << id << endl;
 	return ss.str();
 }
+string Juego::getName(){
+	return name;
+}
 
